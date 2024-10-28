@@ -1,0 +1,56 @@
+body {
+    background-color: #FFFDD0; /* Set the background color to cream */
+    font-family: Arial, sans-serif; /* Existing styles */
+}
+
+
+nav {
+    background-color:  #F5F5DC; /* Background color for the navbar */
+    padding: 10px; /* Padding for navbar */
+}
+.property-card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    border-radius: 10px; /* Rounded corners for the card */
+    overflow: hidden; /* Ensure rounded corners apply to content */
+    transition: transform 0.2s; /* Smooth scaling transition */
+}
+
+.property-card:hover {
+    transform: scale(1.02); /* Slightly scale up on hover */
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.favorite-label {
+    display: block;
+    margin-top: 10px;
+    color: #333; /* Adjust text color */
+}
+
+.carousel-inner {
+    width: 100%; /* Full width */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background for icons */
+    border-radius: 50%; /* Rounded icons */
+}
+
+.carousel-inner img {
+    border-radius: 10px; /* Rounded corners for images */
+}
+
+.carousel-inner img {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+.logo {
+    height: 30px; /* Height of the logo */
+    vertical-align: middle; /* Align the logo vertically with text */
+    margin-right: 8px; /* Space between logo and text */
+}

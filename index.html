@@ -1,0 +1,408 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Rental</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-cream">
+
+       
+            <img src="images/logo.jpg" alt="Logo" class="logo">House Rentals
+      
+       
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+               
+                <li class="nav-item">
+                    <input type="text" id="search-bar" class="form-control" placeholder="What are you looking for?" onkeyup="searchProperties()" style="width: 300px;">
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <div id="threeImageSlider" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col">
+                        <img src="images/slider1.jpg" class="d-block w-100" alt="Slider Image 1" style="height: 200px; object-fit: cover;">
+                    </div>
+                    <div class="col">
+                        <img src="images/slider2.jpg" class="d-block w-100" alt="Slider Image 2" style="height: 200px; object-fit: cover;">
+                    </div>
+                    <div class="col">
+                        <img src="images/slider3.jpg" class="d-block w-100" alt="Slider Image 3" style="height: 200px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col">
+                        <img src="images/slider4.jpg" class="d-block w-100" alt="Slider Image 4" style="height: 200px; object-fit: cover;">
+                    </div>
+                    <div class="col">
+                        <img src="images/slider5.jpg" class="d-block w-100" alt="Slider Image 5" style="height: 200px; object-fit: cover;">
+                    </div>
+                    <div class="col">
+                        <img src="images/slider6.jpg" class="d-block w-100" alt="Slider Image 6" style="height: 200px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#threeImageSlider" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#threeImageSlider" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    
+    
+
+    <div class="container mt-4">
+        <h2>Featured Properties</h2>
+        <div class="row" id="property-listings">
+            <!-- Property Cards (Add more as needed) -->
+            <div class="col-md-4 property-card" data-name="Luxury Villa">
+                <div class="card">
+                    <img src="images/property1.jpg" class="card-img-top" alt="Property 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Luxury Villa</h5>
+                        <p class="card-text">Location: Los Angeles, CA</p>
+                        <p><strong>Price: $2000/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: John Doe\nContact: 123-456-7890')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Luxury Villa')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Modern Apartment">
+                <div class="card">
+                    <img src="images/property2.jpg" class="card-img-top" alt="Property 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Modern Apartment</h5>
+                        <p class="card-text">Location: New York, NY</p>
+                        <p><strong>Price: $1200/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Jane Smith\nContact: 987-654-3210')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Modern Apartment')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Cozy Cottage">
+                <div class="card">
+                    <img src="images/property3.jpg" class="card-img-top" alt="Property 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Cozy Cottage</h5>
+                        <p class="card-text">Location: Portland, OR</p>
+                        <p><strong>Price: $900/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Alice Johnson\nContact: 555-555-5555')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Cozy Cottage')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more property cards -->
+            <div class="col-md-4 property-card" data-name="Charming Townhouse">
+                <div class="card">
+                    <img src="images/property4.jpg" class="card-img-top" alt="Property 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Charming Townhouse</h5>
+                        <p class="card-text">Location: Chicago, IL</p>
+                        <p><strong>Price: $1500/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Mark Wilson\nContact: 444-555-6666')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Charming Townhouse')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Stylish Loft">
+                <div class="card">
+                    <img src="images/property5.jpg" class="card-img-top" alt="Property 5">
+                    <div class="card-body">
+                        <h5 class="card-title">Stylish Loft</h5>
+                        <p class="card-text">Location: Miami, FL</p>
+                        <p><strong>Price: $1800/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Sarah Davis\nContact: 777-888-9999')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Stylish Loft')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Luxury Condo">
+                <div class="card">
+                    <img src="images/property6.jpg" class="card-img-top" alt="Property 6">
+                    <div class="card-body">
+                        <h5 class="card-title">Luxury Condo</h5>
+                        <p class="card-text">Location: San Francisco, CA</p>
+                        <p><strong>Price: $2500/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Kevin Brown\nContact: 222-333-4444')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Luxury Condo')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Beachfront Property">
+                <div class="card">
+                    <img src="images/property7.jpg" class="card-img-top" alt="Property 7">
+                    <div class="card-body">
+                        <h5 class="card-title">Beachfront Property</h5>
+                        <p class="card-text">Location: Malibu, CA</p>
+                        <p><strong>Price: $3000/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Emma Taylor\nContact: 111-222-3333')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Beachfront Property')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Spacious Ranch">
+                <div class="card">
+                    <img src="images/property8.jpg" class="card-img-top" alt="Property 8">
+                    <div class="card-body">
+                        <h5 class="card-title">Spacious Ranch</h5>
+                        <p class="card-text">Location: Austin, TX</p>
+                        <p><strong>Price: $2100/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Liam White\nContact: 999-888-7777')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Spacious Ranch')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Elegant Estate">
+                <div class="card">
+                    <img src="images/property9.jpg" class="card-img-top" alt="Property 9">
+                    <div class="card-body">
+                        <h5 class="card-title">Elegant Estate</h5>
+                        <p class="card-text">Location: Seattle, WA</p>
+                        <p><strong>Price: $4500/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Olivia Green\nContact: 444-666-8888')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Elegant Estate')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Quaint Cabin">
+                <div class="card">
+                    <img src="images/property10.jpg" class="card-img-top" alt="Property 10">
+                    <div class="card-body">
+                        <h5 class="card-title">Quaint Cabin</h5>
+                        <p class="card-text">Location: Asheville, NC</p>
+                        <p><strong>Price: $1200/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: William Black\nContact: 555-777-8888')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Quaint Cabin')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Luxury Penthouse">
+                <div class="card">
+                    <img src="images/property11.jpg" class="card-img-top" alt="Property 11">
+                    <div class="card-body">
+                        <h5 class="card-title">Luxury Penthouse</h5>
+                        <p class="card-text">Location: Boston, MA</p>
+                        <p><strong>Price: $4000/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Ava Blue\nContact: 888-999-0000')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Luxury Penthouse')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Chic Studio">
+                <div class="card">
+                    <img src="images/property12.jpg" class="card-img-top" alt="Property 12">
+                    <div class="card-body">
+                        <h5 class="card-title">Chic Studio</h5>
+                        <p class="card-text">Location: Denver, CO</p>
+                        <p><strong>Price: $800/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Mia Brown\nContact: 123-321-1234')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Chic Studio')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Contemporary Bungalow">
+                <div class="card">
+                    <img src="images/property13.jpg" class="card-img-top" alt="Property 13">
+                    <div class="card-body">
+                        <h5 class="card-title">Contemporary Bungalow</h5>
+                        <p class="card-text">Location: Tucson, AZ</p>
+                        <p><strong>Price: $950/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Noah Harris\nContact: 234-567-8901')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Contemporary Bungalow')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Rustic Farmhouse">
+                <div class="card">
+                    <img src="images/property14.jpg" class="card-img-top" alt="Property 14">
+                    <div class="card-body">
+                        <h5 class="card-title">Rustic Farmhouse</h5>
+                        <p class="card-text">Location: Richmond, VA</p>
+                        <p><strong>Price: $1100/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Emma Wilson\nContact: 456-789-1230')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Rustic Farmhouse')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Serene Retreat">
+                <div class="card">
+                    <img src="images/property15.jpg" class="card-img-top" alt="Property 15">
+                    <div class="card-body">
+                        <h5 class="card-title">Serene Retreat</h5>
+                        <p class="card-text">Location: Nashville, TN</p>
+                        <p><strong>Price: $1300/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Oliver Smith\nContact: 321-654-0987')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Serene Retreat')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Urban Oasis">
+                <div class="card">
+                    <img src="images/property16.jpg" class="card-img-top" alt="Property 16">
+                    <div class="card-body">
+                        <h5 class="card-title">Urban Oasis</h5>
+                        <p class="card-text">Location: Philadelphia, PA</p>
+                        <p><strong>Price: $1750/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Sophia Lee\nContact: 111-222-3333')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Urban Oasis')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Family Home">
+                <div class="card">
+                    <img src="images/property17.jpg" class="card-img-top" alt="Property 17">
+                    <div class="card-body">
+                        <h5 class="card-title">Family Home</h5>
+                        <p class="card-text">Location: Orlando, FL</p>
+                        <p><strong>Price: $1900/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: James Miller\nContact: 555-666-7777')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Family Home')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Downtown Apartment">
+                <div class="card">
+                    <img src="images/property18.jpg" class="card-img-top" alt="Property 18">
+                    <div class="card-body">
+                        <h5 class="card-title">Downtown Apartment</h5>
+                        <p class="card-text">Location: Atlanta, GA</p>
+                        <p><strong>Price: $1400/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Benjamin Young\nContact: 222-333-4444')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Downtown Apartment')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Luxury Suite">
+                <div class="card">
+                    <img src="images/property19.jpg" class="card-img-top" alt="Property 19">
+                    <div class="card-body">
+                        <h5 class="card-title">Luxury Suite</h5>
+                        <p class="card-text">Location: San Diego, CA</p>
+                        <p><strong>Price: $2200/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Amelia Clark\nContact: 333-444-5555')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Luxury Suite')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 property-card" data-name="Penthouse Retreat">
+                <div class="card">
+                    <img src="images/property20.jpg" class="card-img-top" alt="Property 20">
+                    <div class="card-body">
+                        <h5 class="card-title">Penthouse Retreat</h5>
+                        <p class="card-text">Location: Houston, TX</p>
+                        <p><strong>Price: $3500/mo</strong></p>
+                        <button class="btn btn-info" onclick="alert('Owner: Ethan Lewis\nContact: 999-888-7777')">Contact</button>
+                        <label class="favorite-label">
+                            <input type="checkbox" onchange="toggleFavorite(this, 'Penthouse Retreat')"> Add to Favorites
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Reviews</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">John Doe</h5>
+                        <p class="card-text">"Amazing experience! Found my dream apartment!"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Jane Smith</h5>
+                        <p class="card-text">"Excellent service and great properties!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5">
+        <p>&copy; 2024 House Rental. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleFavorite(checkbox, propertyName) {
+            if (checkbox.checked) {
+                alert(propertyName + ' has been added to your favorites!');
+            } else {
+                alert(propertyName + ' has been removed from your favorites!');
+            }
+        }
+
+        function searchProperties() {
+            let input = document.getElementById('search-bar').value.toLowerCase();
+            let propertyCards = document.querySelectorAll('.property-card');
+            propertyCards.forEach(card => {
+                let propertyName = card.getAttribute('data-name').toLowerCase();
+                if (propertyName.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
